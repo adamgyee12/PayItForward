@@ -63,4 +63,4 @@ svg.selectAll("circle")
      .duration(500)
      .style("opacity", 0);
    });
-}, 200);
+}, 500);
