@@ -10,6 +10,7 @@ document.getElementById("submit").onclick = function () {
     var notes = document.getElementById("notes").value;
     sessionStorage.setItem('notes', notes);
     location.href = "https://adamgyee12.github.io/PayItForward/" + id + ".html";
+    //location.href = "localhost:8000/" + id + ".html";
   }
     //location.href = "http://localhost:8000/giotto.html";
     //https://adamgyee12.github.io/Portfolio/giotto.html

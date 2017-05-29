@@ -47,14 +47,7 @@ svg.selectAll("circle")
 .append("circle")
 .attr("cx", function (d) { return projection(d)[0]; })
 .attr("cy", function (d) { return projection(d)[1]; })
-.attr("r", "8px")
-.attr("fill", function(d){
-  if (d[0] == 110){
-    return "#eccc09";
-  } else {
-    return "#ADD8E6";
-  }
-})
+.attr("r", "0px")
 .on("mouseover", function(d) {
    div.transition()
      .duration(200)
@@ -68,5 +61,14 @@ svg.selectAll("circle")
    div.transition()
      .duration(500)
      .style("opacity", 0);
-   });
+   })
+.transition().duration(1000).ease(d3.easeBounce)
+.attr("r", "10px")
+.attr("fill", function(d){
+  if (d[0] == 110){
+    return "#eccc09";
+  } else {
+    return "#ADD8E6";
+  }
+});
 }, 500);
