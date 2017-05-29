@@ -48,7 +48,13 @@ svg.selectAll("circle")
 .attr("cx", function (d) { return projection(d)[0]; })
 .attr("cy", function (d) { return projection(d)[1]; })
 .attr("r", "8px")
-.attr("fill", "#ADD8E6")
+.attr("fill", function(d){
+  if (d[0] == 110){
+    return "#eccc09";
+  } else {
+    return "#ADD8E6";
+  }
+})
 .on("mouseover", function(d) {
    div.transition()
      .duration(200)

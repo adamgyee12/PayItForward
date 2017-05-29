@@ -40,15 +40,23 @@ j = [-8, -4, "the local police officer gave this to me"];
 k = [38, 19, "my mother's best friend handed this to me during graduation"];
 l = [14, -33, "my mailman left this with me after we talked about dogs"];
 
+pittsburgh = [110,15,sessionStorage.getItem('notes')];
+
 var projection = d3.geoMercator();
 
 svg.selectAll("circle")
-.data([a,b,c]).enter()
+.data([a,b,c, pittsburgh]).enter()
 .append("circle")
 .attr("cx", function (d) { return projection(d)[0]; })
 .attr("cy", function (d) { return projection(d)[1]; })
 .attr("r", "8px")
-.attr("fill", "#ADD8E6")
+.attr("fill", function(d){
+  if (d[0] == 110){
+    return "#eccc09";
+  } else {
+    return "#ADD8E6";
+  }
+})
 .on("mouseover", function(d) {
    div.transition()
      .duration(200)
