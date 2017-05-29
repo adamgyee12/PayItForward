@@ -40,10 +40,12 @@ var div = d3.select("body").append("div")
   k = [38, 19, "my mother's best friend handed this to me during graduation"];
   l = [14, -33, "my mailman left this with me after we talked about dogs"];
 
+  pittsburgh = [0,0,sessionStorage.getItem('notes')];
+
 var projection = d3.geoMercator();
 
 svg.selectAll("circle")
-.data([d,e,f]).enter()
+.data([d,e,f,pittsburgh]).enter()
 .append("circle")
 .attr("cx", function (d) { return projection(d)[0]; })
 .attr("cy", function (d) { return projection(d)[1]; })

@@ -7,6 +7,8 @@ document.getElementById("submit").onclick = function () {
     document.getElementById("error").classList.remove("no-error");
     document.getElementById("error").classList.add("error");
   } else {
+    var notes = document.getElementById("notes").value;
+    sessionStorage.setItem('notes', notes);
     location.href = "https://adamgyee12.github.io/PayItForward/" + id + ".html";
   }
     //location.href = "http://localhost:8000/giotto.html";
