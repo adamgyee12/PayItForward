@@ -44,6 +44,17 @@ var div = d3.select("body").append("div")
 
 var projection = d3.geoMercator();
 
+var lines = svg.selectAll("line");
+lines.data([[d,e],[e,f],[f,pittsburgh]]).enter()
+.append("line")
+.style("stroke", "black")  // colour the line
+.attr("x1", function (d) { console.log(d); return projection(d[0])[0]; })     // x position of the first end of the line
+.attr("y1", function (d) { return projection(d[0])[1]; })        // y position of the first end of the line
+.attr("x2", function (d) { return projection(d[1])[0]; })       // x position of the second end of the line
+.attr("y2", function (d) { return projection(d[1])[1]; })
+.transition().duration(1000)
+.style("stroke", "white")  ;
+
 svg.selectAll("circle")
 .data([d,e,f,pittsburgh]).enter()
 .append("circle")

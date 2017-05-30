@@ -44,6 +44,17 @@ pittsburgh = [110,15,sessionStorage.getItem('notes')];
 
 var projection = d3.geoMercator();
 
+var lines = svg.selectAll("line");
+lines.data([[a,b],[b,c],[c,pittsburgh]]).enter()
+.append("line")
+.style("stroke", "black")  // colour the line
+.attr("x1", function (d) { console.log(d); return projection(d[0])[0]; })     // x position of the first end of the line
+.attr("y1", function (d) { return projection(d[0])[1]; })        // y position of the first end of the line
+.attr("x2", function (d) { return projection(d[1])[0]; })       // x position of the second end of the line
+.attr("y2", function (d) { return projection(d[1])[1]; })
+.transition().duration(1000)
+.style("stroke", "white")  ;
+
 var cirlces = svg.selectAll("circle");
 cirlces.data([a,b,c, pittsburgh]).enter()
 .append("circle")
@@ -73,5 +84,7 @@ cirlces.data([a,b,c, pittsburgh]).enter()
     return "#ADD8E6";
   }
 });
+
+
 
 }, 500);
