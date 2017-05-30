@@ -45,7 +45,7 @@ var div = d3.select("body").append("div")
 var projection = d3.geoMercator();
 
 var lines = svg.selectAll("line");
-lines.data([[d,e],[e,f],[f,pittsburgh]]).enter()
+lines.data([[d,f],[f,e],[e,pittsburgh]]).enter()
 .append("line")
 .style("stroke", "black")  // colour the line
 .attr("x1", function (d) { console.log(d); return projection(d[0])[0]; })     // x position of the first end of the line
